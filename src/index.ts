@@ -11,8 +11,8 @@ import axios from 'axios';
 
 // Create server instance
 const server = new McpServer({
-  name: 'n8n-server',
-  version: '1.0.0',
+  name: 'n8n',
+  version: '1.0.2',
 });
 
 // n8n API configuration
