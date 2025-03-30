@@ -24,7 +24,7 @@ Then configure your n8n connection:
 ### Local Installation
 
 ```bash
-git clone https://github.com/yourusername/mcp-n8n-server.git
+git clone https://github.com/ahmadsoliman/mcp-n8n-server.git
 cd mcp-n8n-server
 npm install
 ```

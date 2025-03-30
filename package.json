@@ -34,7 +34,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/mcp-n8n-server"
+    "url": "https://github.com/ahmadsoliman/mcp-n8n-server"
   },
   "engines": {
     "node": ">=18.0.0"
