@@ -1,15 +1,15 @@
 {
   "name": "@ahmad.soliman/mcp-n8n-server",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "MCP server for n8n API integration",
   "main": "build/index.js",
   "type": "module",
   "bin": {
-    "mcp-n8n-server": "build/index.js",
-    "mcp-n8n-verify": "build/verify-connection.js"
+    "mcp-n8n-server": "./build/index.js",
+    "mcp-n8n-verify": "./build/verify-connection.js"
   },
   "scripts": {
-    "build": "tsc && chmod 755 build/index.js build/verify-connection.js",
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
     "start": "node build/index.js",
     "dev": "tsc && node build/index.js",
     "verify": "node build/verify-connection.js",

@@ -11,7 +11,7 @@ import axios from 'axios';
 
 // Create server instance
 const server = new McpServer({
-  name: 'n8n',
+  name: 'mcp-n8n-server',
   version: '1.0.2',
 });
 
@@ -24,7 +24,7 @@ const n8nApi = axios.create({
 });
 
 // List all workflows tool
-server.tool('list-workflows', {}, async () => {
+server.tool('list_workflows', 'Get all n8n workflows', {}, async () => {
   try {
     const response = await n8nApi.get(
       process.env.PROJECT_ID
@@ -54,7 +54,8 @@ server.tool('list-workflows', {}, async () => {
 
 // List all webhooks in a workflow
 server.tool(
-  'list-workflow-webhooks',
+  'list_workflow_webhooks',
+  'Get all webhooks in a workflow',
   {
     id: z.string().describe('The ID of the workflow to get webhooks from'),
   },
@@ -111,7 +112,8 @@ server.tool(
 
 // GET webhook tool
 server.tool(
-  'call-webhook-get',
+  'call_webhook_get',
+  'Call a GET webhook',
   {
     url: z.string().describe('The webhook URL to call'),
   },
@@ -142,7 +144,8 @@ server.tool(
 
 // POST webhook tool
 server.tool(
-  'call-webhook-post',
+  'call_webhook_post',
+  'Call a POST webhook',
   {
     url: z.string().describe('The webhook URL to call'),
     data: z
