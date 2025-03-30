@@ -1,5 +1,5 @@
 {
-  "name": "@ahmadsoliman/mcp-n8n-server",
+  "name": "@ahmad.soliman/mcp-n8n-server",
   "version": "1.0.1",
   "description": "MCP server for n8n API integration",
   "main": "build/index.js",

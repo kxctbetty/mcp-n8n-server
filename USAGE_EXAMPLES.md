@@ -11,7 +11,7 @@ You can use the n8n MCP server as a remote service with Claude AI. Here's how to
 1. Install the package globally:
 
    ```bash
-   npm install -g @ahmadsoliman/mcp-n8n-server
+   npm install -g @ahmad.soliman/mcp-n8n-server
    ```
 
 2. Create a `.env` file in your working directory with your n8n connection details:
@@ -51,7 +51,7 @@ You can use the n8n MCP server as a remote service with Claude AI. Here's how to
      "mcpServers": {
        "n8n-server": {
          "command": "npx",
-         "args": ["-y", "@ahmadsoliman/mcp-n8n-server"]
+         "args": ["-y", "@ahmad.soliman/mcp-n8n-server"]
        }
      }
    }
