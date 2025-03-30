@@ -13,13 +13,21 @@ A Node.js server that provides an interface to interact with n8n workflows throu
 ### Global Installation (Recommended for Remote Usage)
 
 ```bash
-npm install -g mcp-n8n-server
+npm install -g @ahmadsoliman/mcp-n8n-server
 ```
 
 Then configure your n8n connection:
 
 1. Create a `.env` file in your working directory
 2. Add your n8n API information (see Configuration section below)
+
+### Using with npx (No Installation Required)
+
+You can run the server directly with npx:
+
+```bash
+npx -y @ahmadsoliman/mcp-n8n-server
+```
 
 ### Local Installation
 
@@ -50,7 +58,19 @@ N8N_API_KEY=your_api_key_here
 
 After installing globally, you can use it as a remote MCP server with Claude AI:
 
-1. Configure Claude AI to use this as a remote MCP server
+1. Configure Claude AI to use this as a remote MCP server using the following JSON configuration:
+
+```json
+{
+  "mcpServers": {
+    "n8n-server": {
+      "command": "npx",
+      "args": ["-y", "@ahmadsoliman/mcp-n8n-server"]
+    }
+  }
+}
+```
+
 2. Add the following to your prompt or instructions to Claude:
 
 ```
@@ -72,6 +92,19 @@ npm start
 Then configure Claude Desktop to use this MCP server:
 
 Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "n8n-server": {
+      "command": "npx",
+      "args": ["-y", "@ahmadsoliman/mcp-n8n-server"]
+    }
+  }
+}
+```
+
+Alternatively, if you've cloned the repository locally:
 
 ```json
 {
