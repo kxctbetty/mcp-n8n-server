@@ -33,8 +33,14 @@ You can use the n8n MCP server as a remote service with Claude AI. Here's how to
    ```json
    {
      "mcpServers": {
-       "n8n-server": {
-         "command": "mcp-n8n-server"
+       "n8n": {
+         "command": "npx",
+         "args": ["-y", "@ahmad.soliman/mcp-n8n-server"],
+         "env": {
+           "N8N_HOST_URL": "",
+           "PROJECT_ID": "",
+           "N8N_API_KEY": ""
+         }
        }
      }
    }
@@ -49,9 +55,14 @@ You can use the n8n MCP server as a remote service with Claude AI. Here's how to
    ```json
    {
      "mcpServers": {
-       "n8n-server": {
+       "n8n": {
          "command": "npx",
-         "args": ["-y", "@ahmad.soliman/mcp-n8n-server"]
+         "args": ["-y", "@ahmad.soliman/mcp-n8n-server"],
+         "env": {
+           "N8N_HOST_URL": "",
+           "PROJECT_ID": "",
+           "N8N_API_KEY": ""
+         }
        }
      }
    }

@@ -1,6 +1,6 @@
 # MCP n8n API Server
 
-A Node.js server that provides an interface to interact with n8n workflows through the Model Context Protocol (MCP).
+An mcp server that provides an interface to interact with n8n workflows through the Model Context Protocol (MCP).
 
 ## Features
 
@@ -63,9 +63,14 @@ After installing globally, you can use it as a remote MCP server with Claude AI:
 ```json
 {
   "mcpServers": {
-    "n8n-server": {
+    "n8n": {
       "command": "npx",
-      "args": ["-y", "@ahmad.soliman/mcp-n8n-server"]
+      "args": ["-y", "@ahmad.soliman/mcp-n8n-server"],
+      "env": {
+        "N8N_HOST_URL": "",
+        "PROJECT_ID": "",
+        "N8N_API_KEY": ""
+      }
     }
   }
 }
@@ -96,9 +101,14 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "n8n-server": {
+    "n8n": {
       "command": "npx",
-      "args": ["-y", "@ahmad.soliman/mcp-n8n-server"]
+      "args": ["-y", "@ahmad.soliman/mcp-n8n-server"],
+      "env": {
+        "N8N_HOST_URL": "",
+        "PROJECT_ID": "",
+        "N8N_API_KEY": ""
+      }
     }
   }
 }
@@ -115,15 +125,6 @@ Alternatively, if you've cloned the repository locally:
     }
   }
 }
-```
-
-### REST API (Local Only)
-
-For local development, the server also exposes a REST API:
-
-```bash
-# Start the local server
-npm start
 ```
 
 ## Setup
@@ -144,9 +145,6 @@ npm install
 3. Start the server:
 
 ```bash
-# Start the regular Express API server
-npm start
-
 # Start the MCP server (for integration with Claude Desktop and other MCP clients)
 npm run mcp
 ```
@@ -156,32 +154,6 @@ For development with auto-reload:
 ```bash
 npm run dev
 ```
-
-## API Endpoints (Express Server)
-
-### List Workflows
-
-```
-GET /api/workflows
-```
-
-Returns a list of all workflows from your n8n instance.
-
-### Trigger Workflow
-
-```
-POST /api/workflows/:id/trigger
-```
-
-Triggers a specific workflow by ID. Optionally send workflow data in the request body.
-
-### Health Check
-
-```
-GET /health
-```
-
-Returns server health status.
 
 ## MCP Tools (for LLM Integration)
 
@@ -215,19 +187,3 @@ Parameters:
 
 - `url`: The webhook URL to call
 - `data`: Data to send in the POST request body
-
-## Example Usage (REST API)
-
-### List Workflows
-
-```bash
-curl http://localhost:3000/api/workflows
-```
-
-### Trigger Workflow
-
-```bash
-curl -X POST http://localhost:3000/api/workflows/123/trigger \
-  -H "Content-Type: application/json" \
-  -d '{"data": "example"}'
-```
