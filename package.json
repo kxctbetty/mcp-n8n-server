@@ -1,6 +1,6 @@
 {
-  "name": "mcp-n8n-server",
-  "version": "1.0.0",
+  "name": "@ahmadsoliman/mcp-n8n-server",
+  "version": "1.0.1",
   "description": "MCP server for n8n API integration",
   "main": "build/index.js",
   "type": "module",
@@ -32,9 +32,12 @@
   ],
   "author": "",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahmadsoliman/mcp-n8n-server"
+    "url": "git+https://github.com/ahmadsoliman/mcp-n8n-server.git"
   },
   "engines": {
     "node": ">=18.0.0"
